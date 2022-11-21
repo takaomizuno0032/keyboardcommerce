@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Fantastic Keyboards">
+
+    <!-- Bootstrap Required Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Fantastic Keyboards</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/mystyle.css')}}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header id="head">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="{{url_for('main.index')}}">Fantastic Keyboards</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+                    aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <a class="nav-item text-light nav-link" href="{{url_for('main.index')}}">Home</a>
+                        <div class="dropdown">
+                            <a class="nav-item text-light nav-link dropdown-toggle" data-toggle="dropdown"
+                                id="bookDropdown" aria-haspopup="true" aria-expanded="false" href="#">Category</a>
+                            <div class="dropdown-menu" aria-labelledby="bookDropdown">
+                                <a class="dropdown-item"
+                                    href="{{ url_for('main.keybord_categorised', categoryid=1) }}">Gaming</a>
+                                <div id="GamingNav" class="dropdown-divider"></div>
+                                <a class="dropdown-item"
+                                    href="{{ url_for('main.keybord_categorised', categoryid=2) }}">Capactive</a>
+                                <div id="CapactiveNav" class="dropdown-divider"></div>
+                                <a class="dropdown-item"
+                                    href="{{ url_for('main.keybord_categorised', categoryid=3) }}">Pantograph</a>
+                                <div id="PantographNav" class="dropdown-divider"></div>
+                                <a class="dropdown-item"
+                                    href="{{ url_for('main.keybord_categorised', categoryid=4) }}">Other</a>
+                                <div id="OtherNav" class="dropdown-divider"></div>
+                            </div>
+                        </div>
+
+                        <form class="form-inline my-2 my-lg-0 mx-1" action="{{url_for('main.search')}}" method="post">
+                            <input class="form-control mr-1" type="text" placeholder="Search" name="searchWord">
+                            <button class="btn my-2 my-sm-0 header-icon-btn" type="submit">
+                                <img src="{{url_for('static', filename='img/search.svg')}}" class="header-icon">
+                            </button>
+                        </form>
+                        <li class="nav-item">
+                            <a type="button" class="btn header-icon-btn" href="{{url_for('main.order')}}">
+                                <img src="{{url_for('static', filename='img/cart.svg')}}" class="header-icon">
+                                <span class="text-light">Cart</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="flashes">
+                <div class="alert alert-{{category}} mb-0" role="alert">
+                    {{ message }}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% endwith %}
+
+            {% block head %}{% endblock %}
+        </header>
+
+        <div class="inner">
+            <main class="container">
+                {% block main %}{% endblock %}
+            </main>
+        </div>
+
+        <!-- Footer of the website -->
+        <footer class="footer">
+            <div class="bg-secondary text-center" id="footerBackTop">
+                <a class="text-white d-block" href="#head">Back to Top</a>
+            </div>
+            <div class="text-center py-2 bg-dark">
+                <p class="text-white">Copyright &copy; 2022</p>
+                <p class="text-white">Coded with by Takao Mizuno</p>
+                <p class="text-white">No: N11235624</p>
+                <img src="{{url_for('static', filename='img/qut.png')}}" height="120">
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

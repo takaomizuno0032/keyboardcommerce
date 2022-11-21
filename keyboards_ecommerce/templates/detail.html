@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<body>
+    <main class="site-background-color">
+        <div class="container">
+            <section>
+                <div>
+                    <h1>{{keyboard.name}}</h1>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <img src="{{url_for('static', filename='img/products/'+keyboard.image)}}" class="img-fluid">
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="border border-secondary rounded p-3">
+                            <div class="mb-3">
+                                <span>
+                                    Price:
+                                </span>
+                                <h4 class="text-danger">AUD {{keyboard.price}}</h4>
+                            </div>
+                            <div class="text-center">
+                                <a type="button" class="btn btn-dark btn-mg"
+                                    href="{{url_for('main.order', keyboard_id=keyboard.id)}}">
+                                    Add to Cart
+                                </a>
+
+                            </div>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-italic">Brand</td>
+                                    <td>{{keyboard.brand}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-italic">Price</td>
+                                    <td>AUD {{keyboard.price}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-italic">Conective</td>
+                                    <td>{{keyboard.conective}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-italic">Categoty</td>
+                                    <td>{{category.name}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h4>Description</h4>
+                <ul>
+                    {% set descriptions = keyboard.description.split(';') %}
+                    {% for description in descriptions %}
+                    <li>{{description}}</li>
+                    {% endfor %}
+                </ul>
+
+            </section>
+        </div>
+
+    </main>
+
+
+</body>
+
+{% endblock%}
+
+
+</html>

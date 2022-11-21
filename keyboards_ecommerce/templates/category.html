@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<!-- add a big banner to welcome user -->
+<div class="mb-0 jumbotron jumbotron-fluid card card-image header-img">
+    <div class="row justify-content-center mt-5 pb-4">
+        <div class="col-md-8">
+            <div class="jumbotron shadow py-4 mb-5 ">
+                <h1 class="text-center">Happy Keyboards Life</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block main %}
+<section>
+    <div>
+        <h1 class="border-bottom">{{category.name}}</h1>
+    </div>
+
+    <div class="row">
+        {% for keyboard in keyboards%}
+        <dic class="col-lg-3 mt-2">
+            <a class="card h-100 card-background-color text-dark card-hover"
+                href="{{ url_for('main.keyboard_detail', keyboardid=keyboard.id) }}">
+                <img class="card-img-top" src="{{url_for('static', filename='img/products/'+keyboard.image)}}"
+                    alt="{{keyboard.id}}">
+                <div class="card-body">
+                    <h3 class="card-title text-truncate">{{keyboard.name}}</h3>
+                    <span class="card-text text-danger">AUD </span>
+                    <span class="card-text text-danger">{{keyboard.price}}</span>
+                </div>
+            </a>
+        </dic>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="mt-3">
+    <div>
+        <h2 class="border-bottom">About {{category.name}} Keyboard</h2>
+    </div>
+    <p>
+        {{category.description}}
+    </p>
+
+</section>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block main %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Checkout</h1>
+                <p>
+                    Thank you for purchasing. Please provide your details so that we can ship items for you within one
+                    week. Thank you!
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="border-bottom">
+                    <h5 class="font-italic">Order list</h5>
+                </div>
+                <ul>
+                    {% for keyboard in order.keyboards %}
+                    <li>
+                        {{keyboard.name}}
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="border-bottom">
+                    <h5 class="font-italic">Total price</h5>
+                </div>
+                <span> {{ "$%.2f"|format(totalprice) }}
+                </span>
+            </div>
+            <div class="col-lg-6 my-3">
+                {{wtf.quick_form(form)}}
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

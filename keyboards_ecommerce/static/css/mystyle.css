@@ -1,0 +1,148 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrapper {
+    width: 100%;
+    position: relative;
+    min-height: 100%;
+}
+
+.inner {
+    padding-bottom: 279px;
+}
+
+footer {
+    height: 279px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.header-icon {
+    width: 30px;
+    height: 21px;
+}
+
+.header-icon-btn:hover {
+    border-color: white;
+}
+
+.header-img {
+    background-image: url(../img/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+}
+
+
+.icon-trash {
+    background: url(../img/trash.svg);
+}
+
+.icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+input[id="submit"] {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+input[id="submit"]:hover {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+#OtherNav {
+    display: none;
+}
+
+.card-background-color {
+    background: #E6E5E3;
+}
+
+.category-img {
+    opacity: 0.6;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-hover:hover {
+    top: -3px;
+    left: -3px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    opacity: 1 !important;
+}
+
+.category-hover:hover {
+    text-decoration: none;
+    opacity: 1 !important;
+    cursor: pointer;
+}
+
+.order-head:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+#GamingCategory {
+    background-image: url(../img/category/gaming_category.jpg);
+}
+
+#CapactiveCategory {
+    background-image: url(../img/category/capactive_category.jpg);
+}
+
+#PantographCategory {
+    background-image: url(../img/category/pantograph_category.jpg);
+}
+
+#OtherCategory {
+    background-image: url(../img/category/other_category.jpg);
+}
+
+.fadeLeft h5 {
+    display: none;
+}
+
+.fadeLeft:hover h5 {
+    display: block;
+    animation-name: fadeLeftAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes fadeLeftAnime {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Detail Page */
+.product-picture {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#footerBackTop:hover {
+    cursor: pointer;
+    background: #5a6268 !important;
+}
+
+#footerBackTop:hover>a {
+    text-decoration: none;
+}
